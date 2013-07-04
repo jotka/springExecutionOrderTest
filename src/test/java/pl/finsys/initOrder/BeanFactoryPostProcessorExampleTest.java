@@ -20,7 +20,14 @@ public class BeanFactoryPostProcessorExampleTest {
 
         assertThat(ctx != null);
 
+        TestBean bean = (TestBean) ctx.getBean("testBean");
+
+        bean.aMethod();
+
+        bean.setSetterTest("aaa");
+
         ((ClassPathXmlApplicationContext) ctx).close();
+
 
 
     }

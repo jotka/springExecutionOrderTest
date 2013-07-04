@@ -1,8 +1,9 @@
-package pl.finsys.initOrder;
+package pl.finsys;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import pl.finsys.initOrder.TestBean;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -12,7 +13,7 @@ import static org.fest.assertions.Assertions.assertThat;
  * Date: 03.07.13
  * Time: 12:46
  */
-public class BeanFactoryPostProcessorExampleTest {
+public class ExecutionOrderTest {
 
     @Test
     public void testPostProcessBeanFactory() throws Exception {
@@ -23,8 +24,6 @@ public class BeanFactoryPostProcessorExampleTest {
         TestBean bean = (TestBean) ctx.getBean("testBean");
 
         bean.aMethod();
-
-        bean.setSetterTest("aaa");
 
         ((ClassPathXmlApplicationContext) ctx).close();
 
